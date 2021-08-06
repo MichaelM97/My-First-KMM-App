@@ -3,13 +3,6 @@ plugins {
     kotlin("android")
 }
 
-dependencies {
-    implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.3.0")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-}
-
 android {
     compileSdkVersion(30)
     defaultConfig {
@@ -24,4 +17,28 @@ android {
             isMinifyEnabled = false
         }
     }
+}
+
+dependencies {
+    implementation(project(":shared"))
+
+    implementation("androidx.appcompat:appcompat:1.3.1")
+
+    val koinVersion = "3.1.2"
+    implementation("io.insert-koin:koin-android:$koinVersion")
+    implementation("io.insert-koin:koin-androidx-compose:$koinVersion")
+
+    val activityVersion = "1.3.1"
+    implementation("androidx.activity:activity-compose:$activityVersion")
+
+    val composeVersion = "1.0.1"
+    implementation("androidx.compose.ui:ui:$composeVersion")
+    implementation("androidx.compose.ui:ui-tooling:$composeVersion")
+    implementation("androidx.compose.foundation:foundation:$composeVersion")
+    implementation("androidx.compose.material:material:$composeVersion")
+    implementation("androidx.compose.material:material-icons-core:$composeVersion")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
+
+    val composeNavigationVersion = "2.4.0-alpha06"
+    implementation("androidx.navigation:navigation-compose:$composeNavigationVersion")
 }
