@@ -17,12 +17,16 @@ android {
             isMinifyEnabled = false
         }
     }
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }
 
 dependencies {
     implementation(project(":shared"))
 
     implementation("androidx.appcompat:appcompat:1.3.1")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1")
 
     val koinVersion = "3.1.2"
     implementation("io.insert-koin:koin-android:$koinVersion")
@@ -41,4 +45,11 @@ dependencies {
 
     val composeNavigationVersion = "2.4.0-alpha06"
     implementation("androidx.navigation:navigation-compose:$composeNavigationVersion")
+
+    val junit5Version = "5.7.2"
+    testImplementation(platform("org.junit:junit-bom:$junit5Version"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+
+    val mockkVersion = "1.12.0"
+    testImplementation("io.mockk:mockk:$mockkVersion")
 }
