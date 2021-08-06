@@ -17,6 +17,13 @@ android {
             isMinifyEnabled = false
         }
     }
+    composeOptions {
+        kotlinCompilerVersion = "1.5.21"
+        kotlinCompilerExtensionVersion = "1.0.1"
+    }
+    buildFeatures {
+        compose = true
+    }
     tasks.withType<Test> {
         useJUnitPlatform()
     }
