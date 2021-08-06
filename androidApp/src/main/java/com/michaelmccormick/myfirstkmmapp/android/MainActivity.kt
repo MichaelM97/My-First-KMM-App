@@ -1,20 +1,13 @@
 package com.michaelmccormick.myfirstkmmapp.android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.michaelmccormick.myfirstkmmapp.Greeting
-import android.widget.TextView
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import com.michaelmccormick.myfirstkmmapp.android.ui.HomeScreen
 
-fun greet(): String {
-    return Greeting().greeting()
-}
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val tv: TextView = findViewById(R.id.text_view)
-        tv.text = greet()
+        setContent { HomeScreen() }
     }
 }
