@@ -1,10 +1,12 @@
 import SwiftUI
+import shared
 
 @main
 struct iOSApp: App {
+    let repository = GitHubRepository()
 	var body: some Scene {
 		WindowGroup {
-			ContentView()
+            RepositoryListView(viewModel: .init(repository: repository ))
 		}
 	}
 }
